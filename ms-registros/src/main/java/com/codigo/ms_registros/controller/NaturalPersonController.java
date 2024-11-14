@@ -12,12 +12,12 @@ public class NaturalPersonController {
 
     private final NaturalPersonService naturalPersonService;
 
-    private NaturalPersonController(NaturalPersonService naturalPersonService) {
+    public NaturalPersonController(NaturalPersonService naturalPersonService) {
         this.naturalPersonService = naturalPersonService;
     }
 
     @PostMapping()
-    public ResponseEntity<NaturalPersonEntity> saveNaturalPerson(@RequestParam("dni") String dni){
+    public ResponseEntity<NaturalPersonEntity> saveNaturalPerson(@RequestParam("dni")String dni){
         NaturalPersonEntity naturalPerson = naturalPersonService.save(dni);
         return new ResponseEntity<>(naturalPerson, HttpStatus.CREATED);
     }

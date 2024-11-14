@@ -1,20 +1,11 @@
-package com.codigo.ms_registros.entity;
+package com.codigo.ms_registros.aggregates.response;
 
-import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.sql.Timestamp;
-
-@Entity
-@Table(name = "legal_person")
 @Getter
 @Setter
-public class LegalPersonEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private Boolean state;
+public class SunatResponse {
     private String razonSocial;
     private String tipoDocumento;
     private String numeroDocumento;
@@ -35,13 +26,11 @@ public class LegalPersonEntity {
     private String distrito;
     private String provincia;
     private String departamento;
-    private Boolean esAgenteRetencion;
+    private boolean esAgenteRetencion;
     private String tipo;
     private String actividadEconomica;
     private String numeroTrabajadores;
     private String tipoFacturacion;
     private String tipoContabilidad;
     private String comercioExterior;
-    private String createdBy;
-    private Timestamp createdAt;
 }

@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ResponseReniec {
+public class ReniecResponse {
     private String nombres;
     private String apellidoPaterno;
     private String apellidoMaterno;

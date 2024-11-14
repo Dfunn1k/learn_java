@@ -1,7 +1,7 @@
 package com.codigo.ms_registros.service.impl;
 
 import com.codigo.ms_registros.aggregates.constants.Constants;
-import com.codigo.ms_registros.aggregates.response.ResponseReniec;
+import com.codigo.ms_registros.aggregates.response.ReniecResponse;
 import com.codigo.ms_registros.client.ReniecClient;
 import com.codigo.ms_registros.entity.NaturalPersonEntity;
 import com.codigo.ms_registros.repository.NaturalPersonRepository;
@@ -39,14 +39,14 @@ public class NaturalPersonServiceImpl implements NaturalPersonService {
     }
 
     // Este metodo realiza la petición a reniec
-    private ResponseReniec executionReniec(String dni){
+    private ReniecResponse executionReniec(String dni){
         String tokenFinal = "Bearer " + token;
         return reniecClient.getNaturalPersonReniec(dni, tokenFinal);
     }
 
     private NaturalPersonEntity getEntity(String dni){
         NaturalPersonEntity naturalPerson = new NaturalPersonEntity();
-        ResponseReniec response = executionReniec(dni);
+        ReniecResponse response = executionReniec(dni);
 
         if (Objects.nonNull(response)){
             naturalPerson.setState(true);
