@@ -6,6 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
+
 @RestController
 @RequestMapping("/natural_person")
 public class NaturalPersonController {
@@ -17,11 +19,9 @@ public class NaturalPersonController {
     }
 
     @PostMapping()
-    public ResponseEntity<NaturalPersonEntity> saveNaturalPerson(@RequestParam("dni")String dni){
+    public ResponseEntity<NaturalPersonEntity> saveNaturalPerson(
+            @RequestParam("dni")String dni) throws IOException {
         NaturalPersonEntity naturalPerson = naturalPersonService.save(dni);
         return new ResponseEntity<>(naturalPerson, HttpStatus.CREATED);
     }
-
-
-
 }
